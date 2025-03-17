@@ -1,0 +1,713 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 9138a2a..7edd3f5 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,2 +1,3 @@[m
+[31m-Git Commit Rule:[m
+[31m-addedFeature_Date_Developer e.g. authen_29_7_24_UrboyG  [m
+[32m+[m[32mPenetr8 is a Cybersecurity-as-a-Service platform designed to simplify website penetration testing for beginners and amateurs, following OWASP Testing Guide 4.2 and PTES standards. Addressing issues such as rule-of-thumb principles and lack of beginner-friendliness, it supports white box, gray box, and black box testing, guiding users through the entire process and providing security improvement recommendations. The workflow includes pre-engagement interaction, vulnerability assessment, proof of concept (PoC), and report generation. The platform targets the CMU community, including students, professors, and IT workers from CPE, CS, CAMT, and ICDI, as well as IT enthusiasts from other disciplines. Penetr8 focuses on web application testing using open-source tools and user-driven batch script generation. It will be deployed as a local server platform, installable via an .iso file from the official website.[m
+[32m+[m
+[32m+[m[32mThe tech stack includes React.js, Node.js, and PostgreSQL. These technologies were chosen for their robustness, scalability, and ease of use. React.js provides a dynamic and responsive user interface, Node.js ensures efficient server-side processing and real-time capabilities, and PostgreSQL offers a powerful and reliable database solution. This combination allows Penetr8 to deliver a seamless and efficient user experience while maintaining high performance and security standards.[m
+[1mdiff --git a/penetr8/index.html b/penetr8/index.html[m
+[1mindex 103c7e4..5b99105 100644[m
+[1m--- a/penetr8/index.html[m
+[1m+++ b/penetr8/index.html[m
+[36m@@ -1,12 +1,8 @@[m
+[31m-<!DOCTYPE html>[m
+[32m+[m[32m<!doctype html>[m
+ <html lang="en">[m
+   <head>[m
+     <meta charset="UTF-8" />[m
+[31m-    <link rel="icon" type="image" href="../src/assets/moodeng.png" />[m
+[31m-    <link[m
+[31m-      rel="stylesheet"[m
+[31m-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"[m
+[31m-    />[m
+[32m+[m[32m    <link rel="icon" type="image" href="../src/assets/moodeng.png"/>[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+     <title>Penetr8</title>[m
+   </head>[m
+[1mdiff --git a/penetr8/package-lock.json b/penetr8/package-lock.json[m
+[1mindex a64e79a..98ade7d 100644[m
+[1m--- a/penetr8/package-lock.json[m
+[1m+++ b/penetr8/package-lock.json[m
+[36m@@ -8,7 +8,6 @@[m
+       "name": "penetr8",[m
+       "version": "0.0.0",[m
+       "dependencies": {[m
+[31m-        "axios": "^1.7.7",[m
+         "react": "^18.3.1",[m
+         "react-dom": "^18.3.1",[m
+         "tailwind": "^4.0.0"[m
+[36m@@ -1657,11 +1656,6 @@[m
+         "retry": "0.12.0"[m
+       }[m
+     },[m
+[31m-    "node_modules/asynckit": {[m
+[31m-      "version": "0.4.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz",[m
+[31m-      "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="[m
+[31m-    },[m
+     "node_modules/autoprefixer": {[m
+       "version": "10.4.19",[m
+       "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.19.tgz",[m
+[36m@@ -1714,16 +1708,6 @@[m
+         "url": "https://github.com/sponsors/ljharb"[m
+       }[m
+     },[m
+[31m-    "node_modules/axios": {[m
+[31m-      "version": "1.7.7",[m
+[31m-      "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz",[m
+[31m-      "integrity": "sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==",[m
+[31m-      "dependencies": {[m
+[31m-        "follow-redirects": "^1.15.6",[m
+[31m-        "form-data": "^4.0.0",[m
+[31m-        "proxy-from-env": "^1.1.0"[m
+[31m-      }[m
+[31m-    },[m
+     "node_modules/babel-runtime": {[m
+       "version": "6.26.0",[m
+       "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz",[m
+[36m@@ -2025,17 +2009,6 @@[m
+       "integrity": "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==",[m
+       "license": "MIT"[m
+     },[m
+[31m-    "node_modules/combined-stream": {[m
+[31m-      "version": "1.0.8",[m
+[31m-      "resolved": "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz",[m
+[31m-      "integrity": "sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==",[m
+[31m-      "dependencies": {[m
+[31m-        "delayed-stream": "~1.0.0"[m
+[31m-      },[m
+[31m-      "engines": {[m
+[31m-        "node": ">= 0.8"[m
+[31m-      }[m
+[31m-    },[m
+     "node_modules/commander": {[m
+       "version": "4.1.1",[m
+       "resolved": "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz",[m
+[36m@@ -2372,14 +2345,6 @@[m
+         "url": "https://github.com/sponsors/ljharb"[m
+       }[m
+     },[m
+[31m-    "node_modules/delayed-stream": {[m
+[31m-      "version": "1.0.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz",[m
+[31m-      "integrity": "sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==",[m
+[31m-      "engines": {[m
+[31m-        "node": ">=0.4.0"[m
+[31m-      }[m
+[31m-    },[m
+     "node_modules/depd": {[m
+       "version": "1.1.2",[m
+       "resolved": "https://registry.npmjs.org/depd/-/depd-1.1.2.tgz",[m
+[36m@@ -3307,25 +3272,6 @@[m
+       "dev": true,[m
+       "license": "ISC"[m
+     },[m
+[31m-    "node_modules/follow-redirects": {[m
+[31m-      "version": "1.15.9",[m
+[31m-      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.9.tgz",[m
+[31m-      "integrity": "sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==",[m
+[31m-      "funding": [[m
+[31m-        {[m
+[31m-          "type": "individual",[m
+[31m-          "url": "https://github.com/sponsors/RubenVerborgh"[m
+[31m-        }[m
+[31m-      ],[m
+[31m-      "engines": {[m
+[31m-        "node": ">=4.0"[m
+[31m-      },[m
+[31m-      "peerDependenciesMeta": {[m
+[31m-        "debug": {[m
+[31m-          "optional": true[m
+[31m-        }[m
+[31m-      }[m
+[31m-    },[m
+     "node_modules/for-each": {[m
+       "version": "0.3.3",[m
+       "resolved": "https://registry.npmjs.org/for-each/-/for-each-0.3.3.tgz",[m
+[36m@@ -3351,19 +3297,6 @@[m
+         "url": "https://github.com/sponsors/isaacs"[m
+       }[m
+     },[m
+[31m-    "node_modules/form-data": {[m
+[31m-      "version": "4.0.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz",[m
+[31m-      "integrity": "sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==",[m
+[31m-      "dependencies": {[m
+[31m-        "asynckit": "^0.4.0",[m
+[31m-        "combined-stream": "^1.0.8",[m
+[31m-        "mime-types": "^2.1.12"[m
+[31m-      },[m
+[31m-      "engines": {[m
+[31m-        "node": ">= 6"[m
+[31m-      }[m
+[31m-    },[m
+     "node_modules/formats": {[m
+       "version": "1.0.0",[m
+       "resolved": "https://registry.npmjs.org/formats/-/formats-1.0.0.tgz",[m
+[36m@@ -5366,11 +5299,6 @@[m
+         "node": ">= 0.10"[m
+       }[m
+     },[m
+[31m-    "node_modules/proxy-from-env": {[m
+[31m-      "version": "1.1.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",[m
+[31m-      "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="[m
+[31m-    },[m
+     "node_modules/punycode": {[m
+       "version": "2.3.1",[m
+       "resolved": "https://registry.npmjs.org/punycode/-/punycode-2.3.1.tgz",[m
+[1mdiff --git a/penetr8/package.json b/penetr8/package.json[m
+[1mindex 285918a..3e9cd1f 100644[m
+[1m--- a/penetr8/package.json[m
+[1m+++ b/penetr8/package.json[m
+[36m@@ -10,7 +10,6 @@[m
+     "preview": "vite preview"[m
+   },[m
+   "dependencies": {[m
+[31m-    "axios": "^1.7.7",[m
+     "react": "^18.3.1",[m
+     "react-dom": "^18.3.1",[m
+     "tailwind": "^4.0.0"[m
+[1mdiff --git a/penetr8/public/vite.svg b/penetr8/public/vite.svg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/penetr8/src/Authen.jsx b/penetr8/src/Authen.jsx[m
+[1mindex 5b1e672..84fdbaa 100644[m
+[1m--- a/penetr8/src/Authen.jsx[m
+[1m+++ b/penetr8/src/Authen.jsx[m
+[36m@@ -40,14 +40,14 @@[m [mfunction Authen() {[m
+       <div className="w-1/2 flex items-center justify-center p-10 bg-gray-100">[m
+         <div className="w-full max-w-lg">[m
+           <div className="flex ">[m
+[31m-            <h1 className="text-4xl font-extrabold text-Black_test_5 mb-5 pr-3  justify-start">[m
+[32m+[m[32m            <h1 className="text-4xl font-extrabold text-Black_test_5 mb-5 px-3 justify-start">[m
+               Welcome to[m
+             </h1>[m
+             <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#A3346B] to-[#632C61]">[m
+               Penetr8![m
+             </h1>[m
+           </div>[m
+[31m-          <p className=" mb-4">Please log in with the Admin credential</p>[m
+[32m+[m[32m          <p className="pl-4 mb-4">Please log in with the Admin credential</p>[m
+ [m
+           <div className="space-y-4">[m
+             <input[m
+[1mdiff --git a/penetr8/src/assets/Btnuser.jsx b/penetr8/src/assets/Btnuser.jsx[m
+[1mdeleted file mode 100644[m
+[1mindex 3474922..0000000[m
+[1m--- a/penetr8/src/assets/Btnuser.jsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,15 +0,0 @@[m
+[31m-// Btnuser.jsx[m
+[31m-import React from "react";[m
+[31m-[m
+[31m-const Btnuser = ({ text, onClick }) => {[m
+[31m-  return ([m
+[31m-    <button[m
+[31m-      onClick={onClick}[m
+[31m-      className=" text-white py-2 rounded-md hover:opacity-90 transition-opacity bg-black shadow-gradient"[m
+[31m-    >[m
+[31m-      {text}[m
+[31m-    </button>[m
+[31m-  );[m
+[31m-};[m
+[31m-[m
+[31m-export default Btnuser;[m
+[1mdiff --git a/penetr8/src/assets/CustomButton.jsx b/penetr8/src/assets/CustomButton.jsx[m
+[1mindex 2115428..df00009 100644[m
+[1m--- a/penetr8/src/assets/CustomButton.jsx[m
+[1m+++ b/penetr8/src/assets/CustomButton.jsx[m
+[36m@@ -5,7 +5,7 @@[m [mconst CustomButton = ({ text, onClick }) => {[m
+   return ([m
+     <button[m
+       onClick={onClick}[m
+[31m-      className=" text-white py-2 rounded-md hover:opacity-90 transition-opacity"[m
+[32m+[m[32m      className="w-full text-white py-2 rounded-md hover:opacity-90 transition-opacity"[m
+       style={{[m
+         background: "linear-gradient(to right, #A3346B, #632C61)", // Use inline style for gradient[m
+       }}[m
+[1mdiff --git a/penetr8/src/assets/DateANDTime.jsx b/penetr8/src/assets/DateANDTime.jsx[m
+[1mdeleted file mode 100644[m
+[1mindex 6e1341f..0000000[m
+[1m--- a/penetr8/src/assets/DateANDTime.jsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,22 +0,0 @@[m
+[31m-const [wifiStatus, setWifiStatus] = useState("Offline");[m
+[31m-const [currentDate, setCurrentDate] = useState("");[m
+[31m-const [currentTime, setCurrentTime] = useState("");[m
+[31m-[m
+[31m-// Update current date and time[m
+[31m-const date = new Date();[m
+[31m-useEffect(() => {[m
+[31m-  setCurrentDate(date.toLocaleDateString());[m
+[31m-  setCurrentTime(date.toLocaleTimeString());[m
+[31m-[m
+[31m-  // Update every second[m
+[31m-  const intervalId = setInterval(() => {[m
+[31m-    const date = new Date();[m
+[31m-    setCurrentTime(date.toLocaleTimeString());[m
+[31m-  }, 1000);[m
+[31m-[m
+[31m-  <li className="flex space-x-4 ">[m
+[31m-    <span className="text-sm">Date: {currentDate}</span>[m
+[31m-    <span className="text-sm">Time: {currentTime}</span>[m
+[31m-  </li>;[m
+[31m-  return () => clearInterval(intervalId);[m
+[31m-}, []);[m
+[1mdiff --git a/penetr8/src/assets/NavBar.jsx b/penetr8/src/assets/NavBar.jsx[m
+[1mindex fb4e16b..6be9100 100644[m
+[1m--- a/penetr8/src/assets/NavBar.jsx[m
+[1m+++ b/penetr8/src/assets/NavBar.jsx[m
+[36m@@ -1,45 +1,64 @@[m
+[31m-import React from "react";[m
+[31m-import { NavLink } from "react-router-dom";[m
+[31m-import Btnuser from "./Btnuser";[m
+[32m+[m[32mimport React, { useState, useEffect } from 'react';[m
+[32m+[m[32mimport { NavLink } from 'react-router-dom';[m
+ [m
+ const NavBar = () => {[m
+[31m-  const user = "John Doe";[m
+[31m-  const handleButtonClicked = () => {};[m
+[32m+[m[32m    const [wifiStatus, setWifiStatus] = useState('Offline');[m
+[32m+[m[32m    const [currentDate, setCurrentDate] = useState('');[m
+[32m+[m[32m    const [currentTime, setCurrentTime] = useState('');[m
+ [m
+[31m-  return ([m
+[31m-    <nav className="flex items-center justify-between px-16 py-2 bg-blue_0 ">[m
+[31m-      <ul className="flex items-center space-x-4">[m
+[31m-        <li>[m
+[31m-          <NavLink to="/home" activeClassName="active">[m
+[31m-            <img[m
+[31m-              src="../src/assets/moodeng.png"[m
+[31m-              style={{ height: 40, width: 60 }}[m
+[31m-            />[m
+[31m-          </NavLink>[m
+[31m-        </li>[m
+[31m-      </ul>[m
+[31m-      <ul className="flex flex-col items-start space-y-4">[m
+[31m-        {/* Buttons Section */}[m
+[31m-        <div className="flex items-center space-x-6">[m
+[31m-          <li>[m
+[31m-            <NavLink to="/dashboard" activeClassName="active">[m
+[31m-              <button className="bg-transparent border-none text-black hover:text-gray-600 font-semibold text-lg">[m
+[31m-                Dashboard[m
+[31m-              </button>[m
+[31m-            </NavLink>[m
+[31m-          </li>[m
+[31m-          <li>[m
+[31m-            <NavLink to="/report" activeClassName="active">[m
+[31m-              <button className="bg-transparent border-none text-black hover:text-gray-600 font-semibold text-lg">[m
+[31m-                Report[m
+[31m-              </button>[m
+[31m-            </NavLink>[m
+[31m-          </li>[m
+[31m-          <Btnuser text={`Hello, ${user}`} onClick={handleButtonClicked} />[m
+[31m-        </div>[m
+[31m-      </ul>[m
+[31m-    </nav>[m
+[31m-  );[m
+[32m+[m[32m    useEffect(() => {[m
+[32m+[m[32m        // Update WiFi status[m
+[32m+[m[32m        navigator.onLine ? setWifiStatus('Online') : setWifiStatus('Offline');[m
+[32m+[m[41m    [m
+[32m+[m[32m        // Update current date and time[m
+[32m+[m[32m        const date = new Date();[m
+[32m+[m[32m        setCurrentDate(date.toLocaleDateString());[m
+[32m+[m[32m        setCurrentTime(date.toLocaleTimeString());[m
+[32m+[m[41m    [m
+[32m+[m[32m        // Update every second[m
+[32m+[m[32m        const intervalId = setInterval(() => {[m
+[32m+[m[32m            const date = new Date();[m
+[32m+[m[32m            setCurrentTime(date.toLocaleTimeString());[m
+[32m+[m[32m        }, 1000);[m
+[32m+[m[41m    [m
+[32m+[m[32m        return () => clearInterval(intervalId);[m
+[32m+[m[32m    }, []);[m
+[32m+[m[41m    [m
+[32m+[m[32m    return ([m
+[32m+[m[32m        <nav>[m
+[32m+[m[32m            <ul>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <NavLink to="/home" activeClassName="active">[m
+[32m+[m[32m                        <img src="../src/assets/moodeng.png" style={{ height: 60, width: 80}}/>[m
+[32m+[m[32m                    </NavLink>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <NavLink to="/VA" activeClassName="active">[m
+[32m+[m[32m                        <button>SAST Scan</button>[m
+[32m+[m[32m                    </NavLink>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <NavLink to="/dashboard" activeClassName="active">[m
+[32m+[m[32m                        <button>Dashboard</button>[m
+[32m+[m[32m                    </NavLink>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <NavLink to="/report" activeClassName="active">[m
+[32m+[m[32m                        <button>Report</button>[m
+[32m+[m[32m                    </NavLink>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <span>WiFi: {wifiStatus}</span>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <span>Date: {currentDate}</span>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m                <li>[m
+[32m+[m[32m                    <span>Time: {currentTime}</span>[m
+[32m+[m[32m                </li>[m
+[32m+[m[32m            </ul>[m
+[32m+[m[32m        </nav>[m
+[32m+[m[32m    );[m
+ };[m
+ [m
+[31m-export default NavBar;[m
+[32m+[m[32mexport default NavBar;[m
+\ No newline at end of file[m
+[1mdiff --git a/penetr8/src/assets/ProgressItem.jsx b/penetr8/src/assets/ProgressItem.jsx[m
+[1mdeleted file mode 100644[m
+[1mindex 5b2938a..0000000[m
+[1m--- a/penetr8/src/assets/ProgressItem.jsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,39 +0,0 @@[m
+[31m-import React from "react";[m
+[31m-[m
+[31m-function ProgressItem({ fileName, fileSize, progress }) {[m
+[31m-  return ([m
+[31m-    <div className="flex items-center p-4 bg-white rounded-lg shadow-md h-full w-full">[m
+[31m-      <div className="flex-shrink-0 w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">[m
+[31m-        <svg[m
+[31m-          xmlns="http://www.w3.org/2000/svg"[m
+[31m-          fill="none"[m
+[31m-          viewBox="0 0 24 24"[m
+[31m-          strokeWidth={1.5}[m
+[31m-          stroke="currentColor"[m
+[31m-          className="w-6 h-6"[m
+[31m-        >[m
+[31m-          <path[m
+[31m-            strokeLinecap="round"[m
+[31m-            strokeLinejoin="round"[m
+[31m-            d="M9 11.25l3 -3m0 0l3 3m-3-3v8z"[m
+[31m-          />[m
+[31m-        </svg>[m
+[31m-      </div>[m
+[31m-      <div className="ml-4 flex-1">[m
+[31m-        <p className="text-gray-900 font-medium">{fileName}</p>[m
+[31m-        <p className="text-sm text-gray-500">{fileSize}</p>[m
+[31m-        <div className="flex items-center mt-2">[m
+[31m-          <div className="bg-gray-200 rounded-full h-3 flex-1">[m
+[31m-            <div[m
+[31m-              className="bg-Fuchsia_pink_5 h-3 rounded-full"[m
+[31m-              style={{ width: `${progress}%` }}[m
+[31m-            ></div>[m
+[31m-          </div>[m
+[31m-          <p className="text-xs font-bold text-black mx-2">{progress}%</p>{" "}[m
+[31m-        </div>[m
+[31m-      </div>[m
+[31m-    </div>[m
+[31m-  );[m
+[31m-}[m
+[31m-[m
+[31m-export default ProgressItem;[m
+[1mdiff --git a/penetr8/src/assets/UploadButton.jsx b/penetr8/src/assets/UploadButton.jsx[m
+[1mdeleted file mode 100644[m
+[1mindex 7544e48..0000000[m
+[1m--- a/penetr8/src/assets/UploadButton.jsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,49 +0,0 @@[m
+[31m-import React, { useState } from "react";[m
+[31m-[m
+[31m-function UploadButton() {[m
+[31m-  const [selectedFile, setSelectedFile] = useState(null);[m
+[31m-[m
+[31m-  const handleFileChange = (event) => {[m
+[31m-    setSelectedFile(event.target.files[0]);[m
+[31m-  };[m
+[31m-[m
+[31m-  const handleDragOver = (event) => {[m
+[31m-    event.preventDefault();[m
+[31m-  };[m
+[31m-[m
+[31m-  const handleDrop = (event) => {[m
+[31m-    event.preventDefault();[m
+[31m-    setSelectedFile(event.dataTransfer.files[0]);[m
+[31m-  };[m
+[31m-[m
+[31m-  return ([m
+[31m-    <div[m
+[31m-      className="flex items-center justify-center h-24 bg-gray-100 rounded-lg cursor-pointer"[m
+[31m-      onDragOver={handleDragOver}[m
+[31m-      onDrop={handleDrop}[m
+[31m-    >[m
+[31m-      <input type="file" onChange={handleFileChange} hidden />[m
+[31m-      <svg[m
+[31m-        xmlns="http://www.w3.org/2000/svg"[m
+[31m-        fill="none"[m
+[31m-        viewBox="0 0 24 24"[m
+[31m-        strokeWidth={1.5}[m
+[31m-        stroke="currentColor"[m
+[31m-        className="w-6 h-6"[m
+[31m-      >[m
+[31m-        <path[m
+[31m-          strokeLinecap="round"[m
+[31m-          strokeLinejoin="round"[m
+[31m-          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 7.5m4.5 4.5L12 7.5"[m
+[31m-        />[m
+[31m-      </svg>[m
+[31m-      <p className="text-sm text-gray-500">Click to upload or drag and drop</p>[m
+[31m-      <p className="text-xs text-gray-400">.c, .cpp, .h,.java etc.</p>[m
+[31m-      {selectedFile && ([m
+[31m-        <p className="text-sm text-gray-600">{selectedFile.name}</p>[m
+[31m-      )}[m
+[31m-    </div>[m
+[31m-  );[m
+[31m-}[m
+[31m-[m
+[31m-export default UploadButton;[m
+[1mdiff --git a/penetr8/src/assets/Web Security (HD).png b/penetr8/src/assets/Web Security (HD).png[m
+[1mdeleted file mode 100644[m
+[1mindex 00107af..0000000[m
+Binary files a/penetr8/src/assets/Web Security (HD).png and /dev/null differ
+[1mdiff --git a/penetr8/src/index.css b/penetr8/src/index.css[m
+[1mindex 3796344..e7d4bb2 100644[m
+[1m--- a/penetr8/src/index.css[m
+[1m+++ b/penetr8/src/index.css[m
+[36m@@ -27,7 +27,6 @@[m [ma:hover {[m
+ }[m
+ [m
+ body {[m
+[31m-  @apply font-sans;[m
+   margin: 0;[m
+   display: flex;[m
+   place-items: center;[m
+[1mdiff --git a/penetr8/src/pages/Home.css b/penetr8/src/pages/Home.css[m
+[1mindex e69de29..0ffa203 100644[m
+[1m--- a/penetr8/src/pages/Home.css[m
+[1m+++ b/penetr8/src/pages/Home.css[m
+[36m@@ -0,0 +1,56 @@[m
+[32m+[m[32m/* desktop/home.css */[m
+[32m+[m
+[32m+[m[32mnav {[m
+[32m+[m[32m    background-color: #333;[m
+[32m+[m[32m    color: #fff;[m
+[32m+[m[32m    padding: 1em;[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    position: fixed;[m
+[32m+[m[32m    top: 0;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    z-index: 1000; /* Ensures the nav bar stays above other content */[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav ul {[m
+[32m+[m[32m    list-style: none;[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    padding: 0;[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    justify-content: space-between;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav li {[m
+[32m+[m[32m    margin-right: 20px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav a {[m
+[32m+[m[32m    color: #fff;[m
+[32m+[m[32m    text-decoration: none;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav a.active {[m
+[32m+[m[32m    color: #ccc;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav button {[m
+[32m+[m[32m    background-color: #333;[m
+[32m+[m[32m    border: none;[m
+[32m+[m[32m    color: #fff;[m
+[32m+[m[32m    padding: 10px 20px;[m
+[32m+[m[32m    font-size: 16px;[m
+[32m+[m[32m    cursor: pointer;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav button:hover {[m
+[32m+[m[32m    background-color: #444;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mnav span {[m
+[32m+[m[32m    font-size: 16px;[m
+[32m+[m[32m    margin-right: 20px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mh1 {[m
+[32m+[m[32m    text-align: center;[m
+[32m+[m[32m    margin-top: 60px;[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/penetr8/src/pages/Home.jsx b/penetr8/src/pages/Home.jsx[m
+[1mindex 2354d9a..3429ee0 100644[m
+[1m--- a/penetr8/src/pages/Home.jsx[m
+[1m+++ b/penetr8/src/pages/Home.jsx[m
+[36m@@ -1,101 +1,37 @@[m
+[31m-import React, { useState, useEffect } from "react";[m
+[31m-import NavBar from "../assets/NavBar.jsx";[m
+[31m-import "./Home.css";[m
+[31m-import Btnuser from "../assets/Btnuser.jsx";[m
+[31m-import ProgressItem from "../assets/ProgressItem.jsx";[m
+[31m-import CustomButton from "../assets/CustomButton.jsx";[m
+[31m-import UploadButton from "../assets/UploadButton.jsx";[m
+[31m-[m
+[31m-const Desktop = () => {[m
+[31m-  const handleButtonClicked = () => {};[m
+[32m+[m[32m// desktop/home.jsx[m
+[32m+[m[32mimport React, { useState } from "react";[m
+[32m+[m[32mimport { useNavigate } from "react-router-dom";[m
+ [m
+[32m+[m[32mfunction Desktop() {[m
+[32m+[m[32m  const navigate = useNavigate();[m
+[32m+[m[32m  const handleConfirm = () => {[m
+[32m+[m[32m    navigate("/pre-engagement");[m
+[32m+[m[32m  };[m
+   return ([m
+[31m-    <div className="h-screen w-screen bg-white">[m
+[31m-      <NavBar className="fixed top-0 w-full z-50" />[m
+[31m-      <div className="max-w-7xl mx-auto py-10">[m
+[31m-        <div className="w-full max-h-full  bg-gradient-to-tr from-Fuchsia_pink_5 to-white">[m
+[31m-          <div className="flex items-center justify-between h-full">[m
+[31m-            <div className="text-black text-left my-16 mx-16">[m
+[31m-              <h1 className="text-5xl font-bold ">[m
+[31m-                Boost your productivity,[m
+[31m-                <br />[m
+[31m-                maximize your time[m
+[31m-              </h1>[m
+[31m-              <p className="my-4 max-w-lg">[m
+[31m-                Lorem ipsum dolor sit amet consectetur. Malesuada ipsum lobortis[m
+[31m-                condimentum aliquet pharetra imperdiet porttitor leo. Facilisis[m
+[31m-              </p>[m
+[31m-              <div className="flex items-center justify-start">[m
+[31m-                <Btnuser[m
+[31m-                  text={`About Us`}[m
+[31m-                  onClick={handleButtonClicked}[m
+[31m-                  className="mr-1"[m
+[31m-                />[m
+[31m-                <a href="#" className="ml-4 text-black">[m
+[31m-                  Learn more →[m
+[31m-                </a>[m
+[31m-              </div>[m
+[31m-            </div>[m
+[31m-            <div className="flex-1 my-10 ">[m
+[31m-              {/* Replace with your image path */}[m
+[31m-              <img[m
+[31m-                src="\src\assets\Web Security (HD).png"[m
+[31m-                style={{ height: 374, width: 374 }}[m
+[31m-                alt="Image"[m
+[31m-                className="h-full w-full object-cover"[m
+[31m-              />[m
+[31m-            </div>[m
+[31m-          </div>[m
+[31m-        </div>[m
+[31m-        <div>[m
+[31m-          <div className="py-16">[m
+[31m-            <h1 className="text-3xl font-bold text-center">[m
+[31m-              Vulnerability Assessment[m
+[31m-            </h1>[m
+[31m-            <h2 className="text-xl text-center">[m
+[31m-              Your dedicated virtual assistant[m
+[31m-            </h2>[m
+[31m-[m
+[31m-            <div className="mt-10">[m
+[31m-              {/* ส่วนของฟอร์ม */}[m
+[31m-              <form>[m
+[31m-                <label htmlFor="url">[m
+[31m-                  Enter the URL of the public GitHub repository:[m
+[31m-                </label>[m
+[31m-                <input[m
+[31m-                  type="text"[m
+[31m-                  id="url"[m
+[31m-                  className="border border-gray-300 p-2 w-full"[m
+[31m-                />[m
+[31m-[m
+[31m-                <div className="mt-4">[m
+[31m-                  <label htmlFor="fileUpload">[m
+[31m-                    Upload your source code file here:[m
+[31m-                  </label>[m
+[31m-                  <input[m
+[31m-                    type="file"[m
+[31m-                    id="fileUpload"[m
+[31m-                    className="border border-gray-300 p-2 w-full"[m
+[31m-                  />[m
+[31m-                </div>[m
+[31m-                <UploadButton />[m
+[32m+[m[32m    <div className="min-h-screen flex flex-col items-start p-8">[m
+[32m+[m[32m      <h1 className="text-2xl font-bold mb-8">[m
+[32m+[m[32m        This is the homepage of Penetr8[m
+[32m+[m[32m      </h1>[m
+[32m+[m[32m      <button[m
+[32m+[m[32m        type="button"[m
+[32m+[m[32m        onClick={handleConfirm}[m
+[32m+[m[32m        className="inline-block border border-dark_purple_5 rounded px-4 py-2 bg-dark_purple_5 text-white hover:bg-dark_purple_6"[m
+[32m+[m[32m      >[m
+[32m+[m[32m        Penetr8[m
+[32m+[m[32m      </button>[m
+[32m+[m[32m    </div>[m
+[32m+[m[32m  );[m
+[32m+[m[32m}[m
+ [m
+[31m-                {/* ส่วนของ progress bar */}[m
+[31m-                <div className="my-4 ">[m
+[31m-                  <ProgressItem[m
+[31m-                    fileName="Tech design requirements.pdf"[m
+[31m-                    fileSize="200 KB"[m
+[31m-                    progress={50}[m
+[31m-                  />[m
+[31m-                </div>[m
+[32m+[m[32mimport React, { useState, useEffect } from 'react';[m
+[32m+[m[32mimport NavBar from '../assets/NavBar.jsx';[m
+[32m+[m[32mimport './Home.css'[m
+ [m
+[31m-                <CustomButton text="Summit"></CustomButton>[m
+[31m-              </form>[m
+[31m-               [m
+[31m-            </div>[m
+[31m-          </div>[m
+[31m-        </div>[m
+[31m-      </div>[m
+[32m+[m[32mconst Desktop = () => {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <div>[m
+[32m+[m[32m      <NavBar />[m
+[32m+[m[32m      <h1>This is the homepage of Penetr8</h1>[m
+     </div>[m
+   );[m
+ };[m
+[1mdiff --git a/penetr8/tailwind.config.js b/penetr8/tailwind.config.js[m
+[1mindex e1f841b..56c3149 100644[m
+[1m--- a/penetr8/tailwind.config.js[m
+[1m+++ b/penetr8/tailwind.config.js[m
+[36m@@ -3,9 +3,6 @@[m [mexport default {[m
+   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],[m
+   theme: {[m
+     extend: {[m
+[31m-      fontFamily: {[m
+[31m-        sans: ["Poppins", "sans-serif"],[m
+[31m-      },[m
+       colors: {[m
+         Fuchsia_pink_5: "#A3346B",[m
+         dark_purple_5: "#632C61",[m
+[36m@@ -14,15 +11,10 @@[m [mexport default {[m
+         Black_test_5: "#3D3D3D",[m
+         Black_test_4: "#5B5B5B",[m
+         Black_test_4: "#787878",[m
+[31m-        blue_0: "#BCBDE5",[m
+       },[m
+       backgroundImage: {[m
+         "gradient-button": "linear-gradient(to right, #A3346B, #632C61)",[m
+       },[m
+[31m-      boxShadow: {[m
+[31m-        gradient:[m
+[31m-          "0 2px 5px rgba(65, 66, 115, 0.2), 0 2px 10px rgba(99, 44, 97, 0.2), 0 2px 15px rgba(163, 52, 107, 0.2)",[m
+[31m-      },[m
+     },[m
+   },[m
+   plugins: [],[m

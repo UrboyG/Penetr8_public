@@ -1,0 +1,54 @@
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node, Bun, Build Artifacts
+node_modules/
+dist/
+dist-ssr/
+*.tsbuildinfo
+bun.lockb
+
+# Environment Files
+.env
+.env.*
+*.local
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Prisma
+backend/prisma/migrations/
+backend/prisma/.env
+
+# Backend runtime files
+build/
+dump.rdb
+trace/
+.elysia/
+.wrangler/
+
+# App Data
+backend/src/files/[0-9][0-9]*/   # Numbered folders
+backend/src/files/*              # Everything else in files/
+
+# SonarQube
+.sonar/
+.scannerwork/
+
+# VS Code / IDE
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+

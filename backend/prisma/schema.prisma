@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model File {
+  id         Int      @id @default(autoincrement())
+  title      String
+  filename   String
+  filesize   Int
+  filedata   Bytes
+  uploadedAt DateTime @default(now())
+  userId     Int
+  User       User     @relation(fields: [userId], references: [id])
+  Scan       Scan[]
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  password  String?
+  role      String
+  createdAt DateTime?  @default(now())
+  dashboard Dashboard?
+  files     File[]
+  sessions  Session[]
+}
+
+model Session {
+  id         Int       @id @default(autoincrement())
+  userId     Int
+  token      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  lastUsedAt DateTime?
+  user       User      @relation(fields: [userId], references: [id])
+}
+
+model Scan {
+  id              Int       @id @default(autoincrement())
+  fileId          Int
+  scanStatus      String
+  issuesDetected  Int?
+  scanDate        DateTime? @default(now())
+  jsonReport      Json?
+  overallCode     Json?
+  vulnerabilities Json?
+  easyToFix       Json?
+  coverage        Json?
+  issues          Issue[]
+  file            File      @relation(fields: [fileId], references: [id])
+}
+
+model Issue {
+  id            Int       @id @default(autoincrement())
+  scanId        Int
+  severity      String
+  fixDifficulty String
+  description   String
+  cweId         Int?
+  cveId         Int?
+  createdAt     DateTime? @default(now())
+  cve           Cve?      @relation(fields: [cveId], references: [id])
+  cwe           Cwe?      @relation(fields: [cweId], references: [id])
+  scan          Scan      @relation(fields: [scanId], references: [id])
+}
+
+model Cwe {
+  id          Int       @id @default(autoincrement())
+  cweId       String    @unique
+  description String
+  createdAt   DateTime? @default(now())
+  issues      Issue[]
+}
+
+model Cve {
+  id          Int       @id @default(autoincrement())
+  cveId       String    @unique
+  description String
+  severity    String?
+  createdAt   DateTime? @default(now())
+  issues      Issue[]
+}
+
+model Dashboard {
+  id                  Int       @id @default(autoincrement())
+  userId              Int       @unique
+  totalFilesScanned   Int
+  totalIssuesDetected Int
+  lastScanDate        DateTime?
+  createdAt           DateTime? @default(now())
+  user                User      @relation(fields: [userId], references: [id])
+}
