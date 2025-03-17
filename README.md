@@ -107,6 +107,7 @@ cd penetr8
 
 2. Install and set up dependencies
 ```bash
+npm install
 npm run setup
 ```
 
