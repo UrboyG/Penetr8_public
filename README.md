@@ -95,39 +95,91 @@ MIT License © 2025 Penetr8 Project – Chiang Mai University
 
 ## 🧑‍💻 For Developers & Contributors
 
-We welcome open-source contributions to improve Penetr8! Here’s how to get started:
+We welcome open-source contributions to improve **Penetr8** — a SAST (Static Application Security Testing) platform designed for secure code analysis and education.
 
 ### ⚙️ Local Development Setup
 
-1. **Clone the repository**
+Follow these steps to set up the project locally:
+
+---
+
+### 1. 🚀 Clone the Repository
+
 ```bash
-git clone https://github.com/your-username/penetr8.git
+git clone https://github.com/UrboyG/Penetr8_public.git
+cd Penetr8_public
+```
+
+---
+
+### 2. 📦 Install Frontend Dependencies (Vite + npm)
+
+```bash
 cd penetr8
-````
-
-2. Install and set up dependencies
-```bash
 npm install
-npm run setup
 ```
 
-3. Start the backend (inside /backend directory)
-```bash
-cd backend
-npx prisma studio && npm run dev
-```
-This will open Prisma Studio and start the backend powered by Elysia.js and Bun.
+This installs Vite and all frontend dependencies.
 
-4. Start the frontend
+---
+
+### 3. ⚙️ Install Backend Dependencies (Elysia.js + Bun)
+
 ```bash
-cd Penetr8
+cd ../backend
+bun install
+```
+
+This installs all backend dependencies defined in `bunfig.toml` and `package.json`.
+
+---
+
+### 4. 🔐 Set Up Environment Variables
+
+Create your own `.env` files in both `penetr8/` and `backend/` folders, based on `.env.example`.
+
+#### ✅ Example for `penetr8/.env`
+```env
+VITE_API_URL=http://localhost:8080
+```
+
+#### ✅ Example for `backend/.env`
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/your_db
+JWT_SECRET=your_jwt_secret
+```
+
+> 💡 Make sure PostgreSQL is running locally with the right database and credentials.
+
+---
+
+### 5. 🧪 Run the Full Stack App
+
+From the project root:
+
+```bash
+npm install concurrently --save-dev # Run this once if not already installed
 npm run dev
 ```
-Visit http://localhost:3000 to view the app locally.
 
-📝 Notes
-  - Ensure PostgreSQL is running locally for Prisma to connect
-  - Prisma schema files can be found in /backend/prisma/
+This will:
+- Start the **frontend** on `http://localhost:3000`
+- Start the **backend API** on `http://localhost:8080`
+- Launch **Prisma Studio** at `http://localhost:5555`
+
+---
+
+### 📝 Notes
+
+- Backend runs on **Elysia.js** with **Bun**
+- Frontend uses **Vite**
+- Prisma schema is in `backend/prisma/schema.prisma`
+- Sensitive, private, or student-specific data/code has been removed from this public repo
+- Make sure to create and configure your own `.env` files
+
+---
+
+🙌 Happy contributing!
   
 ## 🤝 Contributors
 
