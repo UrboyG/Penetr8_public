@@ -108,7 +108,7 @@ dashboard.get("/dashboard/scanResult", async ({ query }) => {
         id: "desc",
       }
     });
-console.log(scanRecord)
+
     return scanRecord;
   } catch (error: any) {
     console.error("Error retrieving scanResult data:", error);
@@ -569,7 +569,6 @@ async function fetchCWEFromNVD() {
     
     const wellDocumentedCWE = new Set(cweItems.map((cwe) => cwe.id));
 
-    console.log("📌 WELL_DOCUMENTED_CWE Loaded from NVD:", wellDocumentedCWE);
     return wellDocumentedCWE;
   } catch (error) {
     console.error("❌ Error fetching CWE data from NVD:", error);

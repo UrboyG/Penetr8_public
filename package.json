@@ -1,12 +1,15 @@
 {
   "dependencies": {
     "@amcharts/amcharts5": "^5.11.1",
-    "concurrently": "^9.0.1",
     "js-base64": "^3.7.7",
     "react-live": "^4.1.8"
   },
   "scripts": {
     "dev": "concurrently \"cd penetr8 && npm run dev\" \"cd backend && npm run dev\" \"cd backend && npx prisma studio\"",
     "setup": "npm install && concurrently \"cd penetr8 && npm install\" \"cd backend && npm install\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "vite": "^6.2.2"
   }
 }

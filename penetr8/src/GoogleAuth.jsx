@@ -9,7 +9,6 @@ import { getIDURL } from './libs/GoogleID	';
 function GoogleAuthComponent() {
   const [user, setUser] = useState(null);
   const handleLoginSuccess = (credentialResponse) => {
-    console.log("Login Success:", credentialResponse);
     const token = credentialResponse.credential;
     setUser({
       token,

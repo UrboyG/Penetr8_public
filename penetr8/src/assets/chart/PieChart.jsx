@@ -12,7 +12,6 @@ const useFetchVulnerabilities = () => {
         const response = await axios.get(
           "http://localhost:8080/dashboard/vulnerabilities"
         );
-        console.log("response", response);
 
         setData(response.data);
       } catch (err) {

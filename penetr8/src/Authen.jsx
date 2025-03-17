@@ -74,7 +74,7 @@ function Authen() {
   // loginWithGoogle
   const handleGoogleSuccess = async (response) => {
     const token = response.credential;
-    console.log("Google Login Success:", token); //display decoded Token on console
+    
 
 
     try {
@@ -85,18 +85,15 @@ function Authen() {
         },
         body: JSON.stringify({ token }),
       });
-      console.log(res);
-
+    
       if (!res.ok) {
         const { message } = await res.json();
         throw new Error(message || "Google authentication failed");
       }
 
       const data = await res.json();
-      console.log("Google login successful", data);
 
       const userId = data.user?.id;
-      console.log("userId:", userId);
 
       localStorage.setItem("token", data.token || data.sessionToken);
       localStorage.setItem("userId", userId);

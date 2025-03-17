@@ -26,7 +26,6 @@ const ChartEasytofix = ({easyToFix}) => {
           { Difficulty: "Hard", Count: categoryCount.complexToFix },
         ];
 
-        //console.log("formattedData", formattedData);
 
         setData(formattedData);
       } catch (err) {

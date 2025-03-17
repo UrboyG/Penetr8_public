@@ -55,10 +55,6 @@ const Desktop = () => {
                     "data",
                     JSON.stringify({ title: currentFile.file.name, userId })
                 );
-                console.log("Uploading file:", currentFile.file.name);
-                console.log("formData:", formData);
-                console.log("userId:", userId);
-              
                 // Send the file to the server
                 const response = await axios.post(
                     getApiURL() + "/upload",
@@ -84,7 +80,6 @@ const Desktop = () => {
 
                 const data = response.data;
                 if (response.status == 200) {
-                    console.log("File uploaded successfully", data);
                     const fileId = data.fileId;
                     navigate("/va/" + fileId);
                 } else {

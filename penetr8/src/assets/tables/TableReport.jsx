@@ -121,7 +121,6 @@ const App = () => {
       (item.scanDate && item.scanDate.toString().includes(lowerCasedQuery))
     );
   });
-  console.log(filteredData);
   
 
   const handleSearch = (query) => {

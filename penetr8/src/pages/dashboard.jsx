@@ -112,7 +112,6 @@ function Dashboard() {
   const [fileNames, setFileNames] = useState(Object.keys(groupedIssues));
 
   useEffect(() => {
-    console.log(filteredVulnerabilities)
     const groupedIs = filteredVulnerabilities.reduce((acc, issue) => {
       const key = issue.fileName.split("/").pop();
       if (!acc[key]) acc[key] = [];
